@@ -33,5 +33,10 @@ $helm repo update
 
 Node taint'i NoSchedule olarak değiştirilerek node'a deployment önlenir, aşağıdaki komut ile node tekrar schedule edilebilir duruma getirilir.
 
+1-4 "run.sh çalıştırılması yeterlidir"
+
+Helm values.yml ı kullanıldı.
+
+
 $kubectl taint nodes node2 node=server1:NoSchedule-
 
