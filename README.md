@@ -27,3 +27,11 @@ $helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 $helm repo update
 
 ![image](https://user-images.githubusercontent.com/47417469/116604873-63f18480-a937-11eb-9c92-2cedb4fb71c3.png)
+
+
+1-3 "run.sh çalıştırılması yeterlidir"
+
+Node taint'i NoSchedule olarak değiştirilerek node'a deployment önlenir, aşağıdaki komut ile node tekrar schedule edilebilir duruma getirilir.
+
+$kubectl taint nodes node2 node=server1:NoSchedule-
+
