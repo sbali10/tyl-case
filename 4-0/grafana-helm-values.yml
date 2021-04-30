@@ -370,7 +370,7 @@ dashboards:
   #   some-dashboard:
   #     json: |
     custom-dashboard:
-      file: dashboards/k8s-memory-dashboard.json
+      file: k8s-cpu-dashboard.json
   #   prometheus-stats:
   #     gnetId: 2
   #     revision: 2
