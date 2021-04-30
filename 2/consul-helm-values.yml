@@ -84,10 +84,10 @@ global:
     gossipEncryption:
       # secretName is the name of the Kubernetes secret that holds the gossip
       # encryption key. The secret must be in the same namespace that Consul is installed into.
-      secretName: "consul-gossip-encryption-key"
+      secretName: ""
       # secretKey is the key within the Kubernetes secret that holds the gossip
       # encryption key.
-      secretKey: "key"
+      secretKey: ""
       #value: "L1JG6RJcEAgrQKjml+pqU21pW3nHcRxCPXaP/hkDWm8="
   
     # Enables TLS encryption across the cluster to verify authenticity of the
