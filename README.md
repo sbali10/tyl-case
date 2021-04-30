@@ -1,6 +1,6 @@
 # tyol-case
 
-1-1 "run-cluster.sh çalıştırılması yeterlidir"
+1-1 "run.sh çalıştırılması yeterlidir"
 
 Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu.
 
