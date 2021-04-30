@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-prometheus
+spec:
+ ports:
+ - port: 80
+   targetPort: 9090
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: external-prometheus
+subsets:
+ - addresses:
+     - ip: 192.168.0.63
+   ports:
+     - port: 9090
