@@ -42,7 +42,9 @@ $kubectl taint nodes node2 node=server1:NoSchedule-
 
 
 2-0)
-Server 2 nolu üzerinde tek nodeluk bir cluster oluşturuldu. Helm values.yml ile consul ayağa kaldırıldı, bağımlılığı olan secretta ayrı bir ymlda encode şekilde verildi.
+Server 2 üzerinde tek nodeluk bir cluster oluşturuldu. Helm values.yml ile consul ayağa kaldırıldı, bağımlılığı olan secretta ayrı bir ymlda encode şekilde verildi.
+
+
 ![image](https://user-images.githubusercontent.com/47417469/116711958-08c59d80-a9dc-11eb-928a-a67047836aea.png)
 
 
