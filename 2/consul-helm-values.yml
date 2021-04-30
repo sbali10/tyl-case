@@ -391,7 +391,7 @@ global:
   # Client, when enabled, configures Consul clients to run on every node
   # within the Kube cluster. The current deployment model follows a traditional
   # DC where a single agent is deployed per node.
-  client:
+    client:
     enabled: "true"
     image: null
     join: 
