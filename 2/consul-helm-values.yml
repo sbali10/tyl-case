@@ -349,7 +349,7 @@ global:
   # When running external servers, configuring these values is recommended
   # if setting global.tls.enableAutoEncrypt to true (requires consul-k8s >= 0.13.0)
   # or global.acls.manageSystemACLs to true (requires consul-k8s >= 0.14.0).
-  externalServers:
+  #externalServers:
     # If true, the Helm chart will be configured to talk to the external servers.
     # If setting this to true, you must also set server.enabled to false.
     enabled: true
