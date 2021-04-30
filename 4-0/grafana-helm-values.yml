@@ -137,7 +137,7 @@ ingress:
   labels: {}
   path: /
   hosts:
-    - grafana.keremavci.com
+    - grafana.serhat.com
     
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
