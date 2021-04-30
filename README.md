@@ -1,6 +1,6 @@
 # tyol-case
 
-1-1 "run.sh çalıştırılması yeterlidir"
+1-1) "run.sh çalıştırılması yeterlidir"
 
 Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu.
 
@@ -15,7 +15,7 @@ $chmod 600 tycase.pem
 
 
 
-1-2 "run.sh çalıştırılması yeterlidir"
+1-2) "run.sh çalıştırılması yeterlidir"
 
 Helm paket yöneticisi kullanılarak prometheus-values.yml oluşturulud.
 
@@ -29,14 +29,20 @@ $helm repo update
 ![image](https://user-images.githubusercontent.com/47417469/116604873-63f18480-a937-11eb-9c92-2cedb4fb71c3.png)
 
 
-1-3 "run.sh çalıştırılması yeterlidir"
+1-3) "run.sh çalıştırılması yeterlidir"
 
 Node taint'i NoSchedule olarak değiştirilerek node'a deployment önlenir, aşağıdaki komut ile node tekrar schedule edilebilir duruma getirilir.
 
-1-4 "run.sh çalıştırılması yeterlidir"
+1-4) "run.sh çalıştırılması yeterlidir"
 
 Helm values.yml ı kullanıldı.
 
 
 $kubectl taint nodes node2 node=server1:NoSchedule-
+
+
+2)
+2 nolu sunucuda tek nodeluk bir cluster oluşturuldu. Helm values.yml ile consul ayağa kaldırıldı, bağımlılığı olan secretta ayrı bir ymlda encode şekilde verildi.
+![image](https://user-images.githubusercontent.com/47417469/116711958-08c59d80-a9dc-11eb-928a-a67047836aea.png)
+
 
