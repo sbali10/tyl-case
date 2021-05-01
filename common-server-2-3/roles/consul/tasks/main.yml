@@ -1,0 +1,22 @@
+---
+# tasks file for consul
+- name: Create consul volume
+  docker_volume:
+    name: consul-data
+    driver: local
+
+- name: Start consul container
+  docker_container:
+    name: "consul"
+    image: "{{ consul_image }}"
+    volumes:
+    - "consul-data:/consul/data"
+    state: started
+    restart_policy: "unless-stopped"
+    command: "agent -server --bootstrap -bind={{ consul_ip }} -encrypt={{ consul_key }} -ui -client=0.0.0.0"
+    memory: "{{ consul_memory_limit }}"
+    network_mode: "host"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"

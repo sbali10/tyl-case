@@ -1,0 +1,11 @@
+image: lexauw/ansible-alpine:v2.9.2
+
+before_script:
+  - echo "Starting"
+
+deploy:
+  stage: deploy
+  script:
+    - cd common-server-2-3
+    - chmod 600 $ANSIBLE_SSH_PRIVATE_KEY
+    - ansible-playbook -i inventory-ci.ini  main-ci.yaml --become --become-user=root --private-key=$ANSIBLE_SSH_PRIVATE_KEY

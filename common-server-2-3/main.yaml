@@ -1,0 +1,12 @@
+---
+- hosts: server2
+  roles:
+    - docker
+    - consul
+    - prometheus-alertmanager
+
+- hosts: server3
+  roles:
+    - docker
+    - es-kibana
+    - gitlab-ce

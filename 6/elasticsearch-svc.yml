@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+ name: external-elasticsearch
+spec:
+ ports:
+ - port: 9200
+   targetPort: 9200
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+ name: external-elasticsearch
+subsets:
+ - addresses:
+     - ip: 192.168.0.61
+   ports:
+     - port: 9200

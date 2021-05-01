@@ -1,0 +1,47 @@
+
+---
+# tasks file for es-kibana
+- name: Create elasticsearch volume
+  docker_volume:
+    name: esdata
+    driver: local
+
+- name: Start elasticsearch container
+  docker_container:
+    name: "elasticsearch"
+    image: "{{ elasticsearch_image }}"
+    env:
+      discovery.type: "single-node"
+      http.host: "0.0.0.0"
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+    volumes:
+    - "esdata:/usr/share/elasticsearch/data"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    ulimits:
+    - nofile:65535:65535
+    state: started
+    memory: "{{ es_memory_limit }}"
+    restart_policy: "unless-stopped"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"
+
+- name: Start kibana container
+  docker_container:
+    name: "kibana"
+    image: "{{ kibana_image }}"
+    restart_policy: "unless-stopped"
+    links:
+      - "elasticsearch:elasticsearch"
+#    env:
+#      ELASTICSEARCH_HOSTS: "http://{{ docker_bridge_ip }}:9200"
+    memory: "{{ kibana_memory_limit }}"
+    ports:
+      - "5601:5601"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"

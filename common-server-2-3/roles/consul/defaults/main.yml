@@ -1,0 +1,9 @@
+---
+# defaults file for consul
+consul_image: "consul:1.8.0"
+consul_memory_limit: "1G"
+consul_ip: "192.168.0.63"
+consul_key: "L1JG6RJcEAgrQKjml+pqU21pW3nHcRxCPXaP/hkDWm8="
+log_driver: "json-file"
+log_max_size: "100m"
+log_max_file: "3"

@@ -1,0 +1,5 @@
+---
+- hosts: server2
+  roles:
+    - docker
+    - prometheus-alertmanager

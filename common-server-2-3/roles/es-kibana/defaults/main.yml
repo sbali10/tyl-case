@@ -1,0 +1,11 @@
+
+---
+# defaults file for es-kibana
+elasticsearch_image: "docker.elastic.co/elasticsearch/elasticsearch-oss:7.8.0"
+kibana_image: "docker.elastic.co/kibana/kibana-oss:7.8.0"
+log_driver: "json-file"
+log_max_size: "100m"
+log_max_file: "3"
+es_memory_limit: "1G"
+kibana_memory_limit: "512M"
+docker_bridge_ip: "172.17.0.1"

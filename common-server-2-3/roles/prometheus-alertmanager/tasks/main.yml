@@ -1,0 +1,80 @@
+---
+# tasks file for prometheus
+- name: Create prometheus volume
+  docker_volume:
+    name: promethues-data
+    driver: local
+
+- name: Create alertmanager volume
+  docker_volume:
+    name: alertmanager-data
+    driver: local
+  tags:
+  - alertmanager
+
+- name: Create a directory if it does not exist
+  file:
+    path: /srv/alertmanager
+    state: directory
+    mode: '0755'
+
+- name: Add Alertmanager Conf
+  template: src=alertmanager.yml.j2 dest=/srv/alertmanager/alertmanager.yml force=yes
+  tags:
+  - alertmanager
+
+- name: Create a directory if it does not exist
+  file:
+    path: /srv/prometheus
+    state: directory
+    mode: '0755'
+
+- name: Add Prometheus Conf
+  template: src=prometheus.yml.j2 dest=/srv/prometheus/prometheus.yml force=yes
+
+- name: Copy prometheus alerts 
+  copy:
+    src: files/alerts.yml
+    dest: /srv/prometheus/alerts.yml
+    force: yes
+
+- name: Start Alertmanager container
+  docker_container:
+    name: "alertmanager"
+    image: "{{ alertmanager_image }}"
+    volumes:
+    - "/srv/alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml"
+    - "alertmanager-data:/alertmanager"
+    state: started
+    ports:
+      - "9093:9093"
+    restart_policy: "unless-stopped"
+    memory: "{{ alertmanager_memory_limit }}"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"
+  tags:
+  - alertmanager
+
+
+- name: Start promethues container
+  docker_container:
+    name: "prometheus"
+    image: "{{ prometheus_image }}"
+    volumes:
+    - "/srv/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    - "/srv/prometheus/alerts.yml:/etc/prometheus/alerts.yml"
+    - "prometheus-data:/data/prometheus"
+    state: started
+    ports:
+      - "9090:9090"
+      - "9000:9000"
+    links:
+      - "alertmanager:alertmanager"
+    restart_policy: "unless-stopped"
+    memory: "{{ prometheus_memory_limit }}"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"

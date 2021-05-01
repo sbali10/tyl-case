@@ -1,0 +1,37 @@
+---
+# tasks file for gitlab-ce
+- name: Create gitlab-ce data volume
+  docker_volume:
+    name: gitlab-data
+    driver: local
+
+- name: Create gitlab-ce log volume
+  docker_volume:
+    name: gitlab-log
+    driver: local
+
+- name: Create gitlab-ce config volume
+  docker_volume:
+    name: gitlab-config
+    driver: local
+
+- name: Start gitlab-ce container
+  docker_container:
+    name: "gitlab-ce"
+    hostname: "external-gitlab"
+    image: "{{ gitlab_image }}"
+    volumes:
+    - "gitlab-data:/var/opt/gitlab"
+    - "gitlab-log:/var/log/gitlab"
+    - "gitlab-config:/etc/gitlab"
+    ports:
+     - "80:80"
+     - "2222:22"
+    state: started
+    memory: "{{ gitlab_memory_limit }}"
+    restart_policy: "unless-stopped"
+    log_driver: "{{ log_driver }}"
+    log_options:
+      max-size: "{{ log_max_size }}"
+      max-file: "{{ log_max_file }}"
+

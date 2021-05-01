@@ -1,0 +1,8 @@
+
+---
+# defaults file for es-kibana
+gitlab_image: "gitlab/gitlab-ce:13.0.7-ce.0"
+log_driver: "json-file"
+log_max_size: "100m"
+log_max_file: "3"
+gitlab_memory_limit: "2G"

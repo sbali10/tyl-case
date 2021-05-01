@@ -1,0 +1,10 @@
+groups:
+- name: k8s-pod-restart
+  rules:
+  - alert: PodFrequentlyRestarting
+    expr: count(increase(kube_pod_container_status_restarts_total{namespace="monitoring",pod=~"internal-prometheus-server.*"}[24h])) > 2
+    for: 10m
+    labels:
+    severity: warning
+    annotations:
+    summary: internal-prometheus-server restart
