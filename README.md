@@ -48,3 +48,16 @@ Server 2 üzerinde tek nodeluk bir cluster oluşturuldu. Helm values.yml ile con
 ![image](https://user-images.githubusercontent.com/47417469/116711958-08c59d80-a9dc-11eb-928a-a67047836aea.png)
 
 
+4-0)
+Grafana-values.yml ve cpu querrylerimizi konumlandırdığımız json ile grafanayı hazırladık run.sh çalıştırılması yeterlidir. Helm paketlerinde sorun yaşanması halinde aşağıdaki güncel adreslerden helm repoları güncellenebilir.
+
+helm repo add stable https://charts.helm.sh/stable
+helm repo update
+
+Admin kullanıcı bilgileri yml içerisinde yer almaktadır
+
+![image](https://user-images.githubusercontent.com/47417469/116751331-8903f700-aa0c-11eb-8c53-8be15c9f7c67.png)
+
+
+
+
