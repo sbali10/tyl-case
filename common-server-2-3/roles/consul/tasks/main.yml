@@ -1,5 +1,6 @@
 ---
 # tasks file for consul
+
 - name: Create consul volume
   docker_volume:
     name: consul-data

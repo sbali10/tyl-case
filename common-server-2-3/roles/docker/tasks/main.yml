@@ -1,25 +1,41 @@
 ---
-# tasks file for docker
-- name: Install aptitude using apt
-  apt: name=aptitude state=latest update_cache=yes force_apt_get=yes
+
+- name: Update yum and install docker
+  yum: update_cache=yes name=docker state=latest
 
 - name: Install required system packages
-  apt: name={{ item }} state=latest update_cache=yes
-  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common' ]
+  yum: name={{ item }} state=latest update_cache=yes
+  loop: [ 'ca-certificates', 'curl' ]
 
-- name: Add Docker GPG apt Key
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
+- name: Install pip
+  yum:
+    name: python-pip
+    update_cache: yes
     state: present
 
-- name: Add Docker Repository
-  apt_repository:
-    repo: deb https://download.docker.com/linux/ubuntu bionic stable
+- name: Install python-docker
+  yum:
+    name: python-docker
+    update_cache: yes
     state: present
 
-- name: Update apt and install docker-ce
-  apt: update_cache=yes name=docker-ce state=latest
+- name: Install Docker SDK for Python
+  pip:
+    name: "docker<5" 
+  become: yes
 
-- pip:
-    name: docker
+- name: Add Docker CE repo
+  get_url:
+   url: https://download.docker.com/linux/centos/docker-ce.repo
+   dest: /etc/yum.repos.d/docker-ce.repo
+
+- name: Install Docker
+  yum: name=docker state=latest
+
+- name: Start and enable the Docker daemon
+  service: name=docker state=started enabled=yes
+
+- name: Upgrade all packages
+  yum:
+    name: '*'
     state: latest
