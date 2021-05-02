@@ -1,6 +1,9 @@
 # tyol-case
 
-1-1) "run.sh çalıştırılması yeterlidir"
+Tüm sorularda "run.sh" çalıştırılası yeterlidir.
+Server-2 ve Server-3 de container yapıda istenen uygulamalar tek bir folder altında toplandı ve ansible-playbook ile sunuculara gönderildi.
+
+1-1) 
 
 Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu.
 
@@ -15,7 +18,7 @@ $chmod 600 tycase.pem
 
 
 
-1-2) "run.sh çalıştırılması yeterlidir"
+1-2) 
 
 Helm paket yöneticisi kullanılarak prometheus-values.yml oluşturulud.
 
@@ -29,11 +32,11 @@ $helm repo update
 ![image](https://user-images.githubusercontent.com/47417469/116604873-63f18480-a937-11eb-9c92-2cedb4fb71c3.png)
 
 
-1-3) "run.sh çalıştırılması yeterlidir"
+1-3) 
 
 Node taint'i NoSchedule olarak değiştirilerek node'a deployment önlenir, aşağıdaki komut ile node tekrar schedule edilebilir duruma getirilir.
 
-1-4) "run.sh çalıştırılması yeterlidir"
+1-4) 
 
 Helm values.yml ı kullanıldı.
 
