@@ -679,7 +679,7 @@ server:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-      - internal-prometheus.keremavci.com
+      - internal-prometheus.serhat.com
     #   - domain.com/prometheus
 
     ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
