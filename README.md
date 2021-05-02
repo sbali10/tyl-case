@@ -5,7 +5,7 @@ Server-2 ve Server-3 de container yapıda istenen uygulamalar tek bir folder alt
 
 1-1) 
 
-Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu. Istenilen env'lar k8s-cluster.yml,hosts.ymlve inventory.ini içerisinde verildi.
+Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu. Istenilen env'lar k8s-cluster.yml,hosts.yml ve inventory.ini içerisinde verildi.
 
 #kubespray "git clone https://github.com/kubernetes-incubator/kubespray.git" ile locale alındı ve hosts.yml düzenlendi.
 
