@@ -1,7 +1,20 @@
 # tyol-case
 
-Tüm sorularda "run.sh" çalıştırılası yeterlidir.
+Tüm sorularda "run.sh" çalıştırılması yeterlidir.
 Server-2 ve Server-3 de container yapıda istenen uygulamalar tek bir folder altında toplandı ve ansible-playbook ile sunuculara gönderildi.
+
+
+Aşağıdaki adreslerden erişebilirsiniz
+
+http://8.208.115.30:5601/app/kibana#/home
+
+http://8.208.95.65:9093/#/alerts
+
+http://8.208.115.30/users/password/edit?reset_password_token=rTHVdwz6qXe_yRZ8Lw4d
+
+http://8.208.115.30:9200/
+
+http://8.208.90.128:31511/login
 
 1-1) 
 
