@@ -362,7 +362,7 @@ externalServers:
   # used to join the cluster. In most cases the client.join values
   # should be the same, however they may be different if you
   # wish to use separate hosts for the HTTPS connections.
-  hosts: [192.168.0.178]
+  hosts: [192.168.0.175]
 
   # The HTTPS port of the Consul servers.
   httpsPort: 8501
@@ -395,7 +395,7 @@ client:
   enabled: "true"
   image: null
   join: 
-   - 192.168.0.178
+   - 192.168.0.175
 
   # dataDirectoryHostPath is an absolute path to a directory on the host machine
   # to use as the Consul client data directory.

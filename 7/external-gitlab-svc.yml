@@ -1,18 +1,20 @@
 kind: Service
 apiVersion: v1
 metadata:
- name: external-prometheus
+ name: external-gitlab
+ namespace: gitlab
 spec:
  ports:
  - port: 80
-   targetPort: 9090
+   targetPort: 80
 ---
 kind: Endpoints
 apiVersion: v1
 metadata:
- name: external-prometheus
+ name: external-gitlab
+ namespace: gitlab
 subsets:
  - addresses:
-     - ip: 192.168.0.175
+     - ip: 192.168.0.176
    ports:
-     - port: 9090
+     - port: 80
