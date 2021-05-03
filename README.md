@@ -9,10 +9,11 @@ Kubespray ve ansible-playbook ile kubernetes clusterı oluşturuldu. Istenilen e
 
 #kubespray "git clone https://github.com/kubernetes-incubator/kubespray.git" ile locale alındı ve hosts.yml düzenlendi.
 
-$sudo pip3 install -r kubespray/release-master/requirements.txt
-
 $chmod 600 tycase.pem
+$pip install --upgrade setuptools
 
+$sudo pip install -r requirements.txt  (/kubespray/requirements.txt)
+$https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/    (kubectl installation document)
 
 ![image](https://user-images.githubusercontent.com/47417469/116604249-89ca5980-a936-11eb-8ea8-5d379145695b.png)
 
