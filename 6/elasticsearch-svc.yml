@@ -13,6 +13,6 @@ metadata:
  name: external-elasticsearch
 subsets:
  - addresses:
-     - ip: 192.168.0.61
+     - ip: 192.168.0.176
    ports:
      - port: 9200
