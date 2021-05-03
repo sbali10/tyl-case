@@ -25,10 +25,15 @@ $https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/    (kubectl insta
 Prometheus için helm values.yml düzenlendi, toleration olarakta server1 verildi.
 
 $curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+
 $chmod 700 get_helm.sh
+
 $./get_helm.sh
+
 $helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-$helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+$helm repo add stable https://charts.helm.sh/stable
+
 $helm repo update
 
 ![image](https://user-images.githubusercontent.com/47417469/116604873-63f18480-a937-11eb-9c92-2cedb4fb71c3.png)
