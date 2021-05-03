@@ -14,7 +14,7 @@ http://8.208.115.30/users/password/edit?reset_password_token=rTHVdwz6qXe_yRZ8Lw4
 
 http://8.208.115.30:9200/
 
-http://8.208.90.128:31511/login
+http://8.208.90.128:31841/login
 
 1-1) 
 
