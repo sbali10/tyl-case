@@ -10,7 +10,7 @@ http://8.208.115.30:5601/app/kibana#/home
 
 http://8.208.95.65:9093/#/alerts
 
-http://8.208.115.30/users/password/edit?reset_password_token=rTHVdwz6qXe_yRZ8Lw4d
+http://8.208.115.30/users/sign_in
 
 http://8.208.115.30:9200/
 
