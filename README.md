@@ -1,4 +1,4 @@
-# tyol-case
+# tyl-case
 
 Tüm sorularda "run.sh" çalıştırılması yeterlidir.
 Server-2 ve Server-3 de container yapıda istenen uygulamalar tek bir folder altında toplandı ve ansible-playbook ile sunuculara gönderildi.
